@@ -5,6 +5,8 @@
 class Board:
     def __init__(self):
         self.board_list = [0 for x in range(9)]             #list comprehension for 0 * 9
+        #[0,0,0,0,0,0,0,0,0,0]
+        #[1,]
 
 
 
@@ -24,7 +26,7 @@ class Board:
         
         return True
 
-    def is_valid(self, cell): # checks  move was a valid move otherwise returns False
+    def is_valid(self, cell): # checks move was a valid move otherwise returns False
         if self.board_list[cell] == 0:
             return True
         else:
@@ -32,11 +34,11 @@ class Board:
 
 
     #function to print the right sign to the board
-    def print_sign_to_board(self,sign): 
-        self.sign = sign
-        if self.sign== 1:
+    def print_sign_to_board(self,sign):        #sign = self.board_list[0] = Liste[0,0,0,0,0,0,0,0,0,0]
+        #sign = sign
+        if sign== 1:
             return "X"
-        elif self.sign == 0:
+        elif sign == 0:
             return " "
         else:
             return "O"      
@@ -56,19 +58,19 @@ class Board:
     def check_3_in_a_row(self, Player):
         sign = Player.symbol
         #rows left to right
-        if self.board_list[0] == sign and  self.board_list[1] and  self.board_list[2]:
+        if self.board_list[0] == sign and  self.board_list[1] and  self.board_list[2]==sign:
             return True
-        elif self.board_list[3] == sign and  self.board_list[4] and  self.board_list[5]:
+        elif self.board_list[3] == sign and  self.board_list[4] and  self.board_list[5]==sign:
             return True
-        elif self.board_list[6] == sign and  self.board_list[7] and  self.board_list[8]:
+        elif self.board_list[6] == sign and  self.board_list[7] and  self.board_list[8]==sign:
             return True
 
         #columns    
-        elif self.board_list[0] == sign and  self.board_list[3] and  self.board_list[6]:
+        elif self.board_list[0] == sign and  self.board_list[3] and  self.board_list[6]==sign:
             return True
-        elif self.board_list[1] == sign and  self.board_list[4] and  self.board_list[7]:
+        elif self.board_list[1] == sign and  self.board_list[4] and  self.board_list[7]==sign:
             return True
-        elif self.board_list[2] == sign and  self.board_list[5] and  self.board_list[8]:
+        elif self.board_list[2] == sign and  self.board_list[5] and  self.board_list[8]==sign:
             return True        
 
          #diagonal   
